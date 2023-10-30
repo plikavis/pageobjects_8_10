@@ -1,4 +1,3 @@
-import os
 from selene import browser
 from pageobjects_8_10.registration_page import RegistrationPage
 
@@ -15,7 +14,7 @@ def test_form():
     # Write phone
     registration_page.phone('1234567890')  # browser.element('#userNumber').should(be.blank).type('1234567890')
     # Calendar
-    registration_page.birthdate('25','December', '2020')
+    registration_page.birthdate('25', 'December', '2020')
     # Subject
     registration_page.fill_subject('Maths')
     # Choose hobby
