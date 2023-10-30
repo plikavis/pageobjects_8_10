@@ -1,3 +1,5 @@
+import os
+
 from selene import browser, be, by, command, have
 
 
@@ -11,7 +13,7 @@ from selene import browser, be, by, command, have
 #     return None
 class RegistrationPage:
     def __init__(self):
-        pass
+        self.file = browser.element('#uploadPicture')
 
     def open(self):
         browser.open('/automation-practice-form')
@@ -50,6 +52,10 @@ class RegistrationPage:
 
     def fill_hobbies(self, type):
         browser.element('#hobbiesWrapper').perform(command.js.scroll_into_view).element(by.text(type)).click()
+        return self
+
+    def download_file(self, file):
+        self.file.send_keys(os.path.abspath(f'resourses/{file}'))
         return self
 
     def fill_address(self, value):
