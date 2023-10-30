@@ -15,13 +15,13 @@ def test_form():
     # Write phone
     registration_page.phone('1234567890')  # browser.element('#userNumber').should(be.blank).type('1234567890')
     # Calendar
-    registration_page.birthdate('December', '2020')
+    registration_page.birthdate('25','December', '2020')
     # Subject
     registration_page.fill_subject('Maths')
     # Choose hobby
     registration_page.fill_hobbies('Sports')
     # download file
-    browser.element('#uploadPicture').send_keys(os.path.abspath('resourses/123.png'))
+    registration_page.download_file('123.png')
     # Write address
     registration_page.fill_address('Tbilisi')
     # Choose country and city

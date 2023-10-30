@@ -1,16 +1,7 @@
 import os
-
 from selene import browser, be, by, command, have
 
 
-# class registration_page():
-#     def open(self, address):
-#         browser.open(address)
-#     def
-#
-#
-# def open(param):
-#     return None
 class RegistrationPage:
     def __init__(self):
         self.file = browser.element('#uploadPicture')
@@ -39,11 +30,11 @@ class RegistrationPage:
         browser.element('#userNumber').should(be.blank).type(number)
         return self
 
-    def birthdate(self, month, year):
+    def birthdate(self, day, month, year):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').click().element(by.text(month)).click()
         browser.element('.react-datepicker__year-select').click().element(by.text(year)).click()
-        browser.element('.react-datepicker__day.react-datepicker__day--025').click()
+        browser.element(f'.react-datepicker__day.react-datepicker__day--0{day}').click()
         return self
 
     def fill_subject(self, subject_name):
