@@ -1,5 +1,6 @@
-import os
 from selene import browser, be, by, command, have
+
+import resources
 
 
 class RegistrationPage:
@@ -46,7 +47,8 @@ class RegistrationPage:
         return self
 
     def download_file(self, file):
-        self.file.send_keys(os.path.abspath(f'resourses/{file}'))
+        # self.file.send_keys(os.path.abspath(f'resources/{file}'))
+        self.file.send_keys(resources.path(file))
         return self
 
     def fill_address(self, value):
