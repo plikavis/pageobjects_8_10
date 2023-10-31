@@ -1,5 +1,6 @@
-import os
 from selene import browser, by, command, have
+
+import resources
 from pageobjects_8_10.data.users import User
 
 
@@ -56,8 +57,8 @@ class RegistrationPage:
         self.hobby.perform(command.js.scroll_into_view).element(by.text(value)).click()
         return self
 
-    def download_file(self, name):
-        self.file.send_keys(os.path.abspath(f'resourses/{name}'))
+    def download_file(self, file):
+        self.file.send_keys(resources.path(file))
         return self
 
     def fill_address(self, value):
