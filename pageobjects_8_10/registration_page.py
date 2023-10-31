@@ -1,5 +1,4 @@
 from selene import browser, be, by, command, have
-
 import resources
 
 
