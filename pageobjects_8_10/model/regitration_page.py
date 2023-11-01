@@ -25,6 +25,12 @@ class RegistrationPage:
         browser.open('/automation-practice-form')
         return self
 
+    def remove_ads(self):
+        browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
+            have.size_greater_than_or_equal(3))
+        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
+        return self
+
     def fill_full_name(self, name, lastname):
         self.first_name.type(name)
         self.last_name.type(lastname)
@@ -75,6 +81,7 @@ class RegistrationPage:
         return self
 
     def register(self, user: User):
+        self.remove_ads()
         self.fill_full_name(user.name, user.lastName)
         self.fill_email(user.email)
         self.fill_gender()
