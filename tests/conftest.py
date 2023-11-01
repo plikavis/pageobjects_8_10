@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from selene import browser
+from selene import browser, Browser, Config
 from selenium.webdriver.chrome.options import Options
 
 from utils import attach
@@ -17,16 +17,15 @@ def browser_settings():
             "enableVideo": True
         }
     }
-
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
         command_executor="http://selenoid:4444/wd/hub",
         options=options)
 
     browser.config.driver = driver
-    browser.config.base_url = 'https://demoqa.com'
 
-    yield
+    yield browser
+
     attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_html(browser)
