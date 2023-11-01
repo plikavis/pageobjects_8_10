@@ -7,7 +7,7 @@ class RegistrationPage:
         self.file = browser.element('#uploadPicture')
 
     def open(self):
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
         return self
 
     def fill_first_name(self, name):

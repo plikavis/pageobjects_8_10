@@ -8,9 +8,9 @@ from utils import attach
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_settings():
-    browser.config.window_height = 900
-    browser.config.window_width = 1440
-    browser.config.base_url = 'https://demoqa.com'
+    # browser.config.window_height = 900
+    # browser.config.window_width = 1440
+    # browser.config.base_url = 'https://demoqa.com'
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -25,7 +25,7 @@ def browser_settings():
         command_executor="https://user1%1234@selenoid:autotests.cloud/wd/hub",
         options=options)
 
-    browser.config.driver = driver
+    browser = Browser(Config(driver))
 
     yield browser
 
@@ -35,4 +35,5 @@ def browser_settings():
     attach.add_video(browser)
 
     browser.quit()
+
 
