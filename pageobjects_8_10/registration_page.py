@@ -78,3 +78,10 @@ class RegistrationPage:
             state_city
         ))
         return self
+
+    def remove_ads(self):
+        browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
+            have.size_greater_than_or_equal(3))
+        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
+        return self
+

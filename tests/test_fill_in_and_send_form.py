@@ -1,10 +1,11 @@
-from selene import browser
+from selene import browser, have, command
 from pageobjects_8_10.registration_page import RegistrationPage
 
 
 def test_form():
     registration_page = RegistrationPage()
     registration_page.open()
+    registration_page.remove_ads()
     # Name and Email
     registration_page.fill_first_name('Test_name')
     registration_page.fill_last_name('Test_Lastname')
