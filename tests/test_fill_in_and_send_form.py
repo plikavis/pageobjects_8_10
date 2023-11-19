@@ -13,11 +13,11 @@ def test_form():
         # Name and Email
         registration_page.fill_first_name('Test_name')
         registration_page.fill_last_name('Test_Lastname')
-        registration_page.email('Test@test.com')  # browser.element('#userEmail').should(be.blank).type('Test@test.com')
+        registration_page.email('Test@test.com')
         # Choose gender
-        registration_page.gender()  # browser.element('[for=gender-radio-2]').click()
+        registration_page.gender()
         # Write phone
-        registration_page.phone('1234567890')  # browser.element('#userNumber').should(be.blank).type('1234567890')
+        registration_page.phone('1234567890')
         # Calendar
         registration_page.birthdate('25', 'December', '2020')
         # Subject
